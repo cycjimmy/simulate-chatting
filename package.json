@@ -1,17 +1,18 @@
 {
-  "name": "simulate-chatting",
-  "version": "0.5.2",
+  "name": "@cycjimmy/simulate-chatting",
+  "version": "1.0.0",
   "description": "simulate chatting ui",
-  "main": "build/simulateChatting.js",
+  "main": "build/simulate-chatting.js",
   "scripts": {
     "test": "jest",
     "start": "cross-env NODE_ENV=development webpack --display-modules --display-reasons --display-error-details --watch --color",
     "build": "cross-env NODE_ENV=production webpack --progress --optimize-minimize && webpack --progress --display-modules --display-reasons --display-error-details --color",
-    "deploy": "gulp deploy"
+    "build:dev": "cross-env NODE_ENV=development webpack --display-modules --display-reasons --display-error-details --color",
+    "deploy": "npm run build:dev && gulp deploy"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cycdpo/simulate-chatting.git"
+    "url": "git+https://github.com/cycjimmy/simulate-chatting.git"
   },
   "keywords": [
     "SimulateChat",
@@ -20,9 +21,9 @@
   "author": "cycjimmy <cycjimmy@gmail.com> (https://github.com/cycjimmy)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cycdpo/simulate-chatting/issues"
+    "url": "https://github.com/cycjimmy/simulate-chatting/issues"
   },
-  "homepage": "https://github.com/cycdpo/simulate-chatting#readme",
+  "homepage": "https://github.com/cycjimmy/simulate-chatting#readme",
   "devDependencies": {
     "@babel/core": "^7.6.3",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",

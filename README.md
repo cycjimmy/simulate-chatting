@@ -7,38 +7,38 @@
 [![npm download][download-image]][download-url]
 [![npm license][license-image]][download-url]
 
-[npm-image]: https://img.shields.io/npm/v/simulate-chatting.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/simulate-chatting
-[travis-image]: https://img.shields.io/travis/cycdpo/simulate-chatting.svg?style=flat-square
-[travis-url]: https://travis-ci.org/cycdpo/simulate-chatting
-[david-image]: https://img.shields.io/david/cycdpo/simulate-chatting.svg?style=flat-square
-[david-url]: https://david-dm.org/cycdpo/simulate-chatting
-[david-dev-image]: https://david-dm.org/cycdpo/simulate-chatting/dev-status.svg?style=flat-square
-[david-dev-url]: https://david-dm.org/cycdpo/simulate-chatting?type=dev
-[download-image]: https://img.shields.io/npm/dm/simulate-chatting.svg?style=flat-square
-[download-url]: https://npmjs.org/package/simulate-chatting
-[license-image]: https://img.shields.io/npm/l/simulate-chatting.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/@cycjimmy/simulate-chatting.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/@cycjimmy/simulate-chatting
+[travis-image]: https://img.shields.io/travis/cycjimmy/simulate-chatting.svg?style=flat-square
+[travis-url]: https://travis-ci.org/cycjimmy/simulate-chatting
+[david-image]: https://img.shields.io/david/cycjimmy/simulate-chatting.svg?style=flat-square
+[david-url]: https://david-dm.org/cycjimmy/simulate-chatting
+[david-dev-image]: https://david-dm.org/cycjimmy/simulate-chatting/dev-status.svg?style=flat-square
+[david-dev-url]: https://david-dm.org/cycjimmy/simulate-chatting?type=dev
+[download-image]: https://img.shields.io/npm/dm/@cycjimmy/simulate-chatting.svg?style=flat-square
+[download-url]: https://npmjs.org/package/@cycjimmy/simulate-chatting
+[license-image]: https://img.shields.io/npm/l/@cycjimmy/simulate-chatting.svg?style=flat-square
 
-([Releases](https://github.com/cycdpo/simulate-chatting/releases) | [Demo](https://cycdpo.github.io/simulate-chatting/))
+([Releases](https://github.com/cycjimmy/simulate-chatting/releases) | [Demo](https://cycjimmy.github.io/simulate-chatting/))
 
 
 ## Install
 ```shell
 # via npm
-$ npm install simulate-chatting --save
+$ npm install @cycjimmy/simulate-chatting --save
 
 # or via yarn
-$ yarn add simulate-chatting
+$ yarn add @cycjimmy/simulate-chatting
 ```
 
 ## Use
 **Simulate chatting based on [Swiper 4+](https://github.com/nolimits4web/Swiper). Add Script of swiper in your project first**
 
 ```javascript
-import SimulateChat from 'simulate-chatting';
+import SimulateChat from '@cycjimmy/simulate-chatting';
 
 # OR
-const SimulateChat = require('simulate-chatting');
+const SimulateChat = require('@cycjimmy/simulate-chatting');
 ```
 
 ```javascript
@@ -80,7 +80,7 @@ let simulateChat = new SimulateChat(wrapper, options);
 <div id="wrapper"></div>
 
 <script src="swiper.min.js"></script>
-<script src="simulateChatting.min.js"></script>
+<script src="simulate-chatting.min.js"></script>
 <script>
   var simulateChat = new SimulateChat('#wrapper', {
     sound: 'msg.mp3',
@@ -98,7 +98,7 @@ let simulateChat = new SimulateChat(wrapper, options);
 ## CDN
 To use via a CDN include this in your html:
 ```text
-<script src="https://cdn.jsdelivr.net/npm/simulate-chatting@0/build/simulateChatting.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@cycjimmy/simulate-chatting@1/build/simulate-chatting.min.js"></script>
 ```
 
 

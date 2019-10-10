@@ -59,9 +59,9 @@ const config = {
     path: IS_DEVELOPMENT
       ? path.resolve('dist')
       : path.resolve('build'),
-    filename: IS_PRODUCTION
-      ? 'simulateChatting.min.js'
-      : 'simulateChatting.js',
+    filename: packageJson.name.replace(/^.+\//g, '') + (() => IS_PRODUCTION
+      ? '.min.js'
+      : '.js')(),
     library: 'SimulateChat',
     libraryTarget: 'umd',
     libraryExport: 'default'
@@ -155,8 +155,8 @@ const config = {
   plugins: [
     new webpack.BannerPlugin({
       banner: packageJson.name + ' v' + packageJson.version +
-      '\nHomepage: ' + packageJson.homepage +
-      '\nReleased under the ' + packageJson.license + ' License.'
+        '\nHomepage: ' + packageJson.homepage +
+        '\nReleased under the ' + packageJson.license + ' License.'
     })
   ]
 };

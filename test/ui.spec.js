@@ -1,7 +1,7 @@
 import path from 'path';
 
 import Swiper from 'swiper';
-import SimulateChat from '../build/simulateChatting.min';
+import SimulateChat from '../build/simulate-chatting.min';
 
 describe('ui spec', () => {
   const
