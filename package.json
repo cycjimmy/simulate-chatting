@@ -1,6 +1,6 @@
 {
   "name": "@cycjimmy/simulate-chatting",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "simulate chatting ui",
   "main": "build/simulate-chatting.js",
   "scripts": {
