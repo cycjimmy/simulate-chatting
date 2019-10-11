@@ -1,14 +1,13 @@
 {
   "name": "@cycjimmy/simulate-chatting",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "simulate chatting ui",
   "main": "build/simulate-chatting.js",
   "scripts": {
     "test": "jest",
     "start": "cross-env NODE_ENV=development webpack --display-modules --display-reasons --display-error-details --watch --color",
     "build": "cross-env NODE_ENV=production webpack --progress --optimize-minimize && webpack --progress --display-modules --display-reasons --display-error-details --color",
-    "build:dev": "cross-env NODE_ENV=development webpack --display-modules --display-reasons --display-error-details --color",
-    "deploy": "npm run build:dev && gulp deploy"
+    "build:dev": "cross-env NODE_ENV=development webpack --display-modules --display-reasons --display-error-details --color"
   },
   "repository": {
     "type": "git",
@@ -38,8 +37,6 @@
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
     "file-loader": "^4.2.0",
-    "gh-pages": "^2.1.1",
-    "gulp": "^4.0.2",
     "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^6.0.0",
     "jest": "^24.9.0",
