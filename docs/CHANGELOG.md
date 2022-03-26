@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/cycjimmy/simulate-chatting/compare/v2.0.0...v2.0.1) (2022-03-26)
+
+
+### Bug Fixes
+
+* fix root version after releasing ([2126177](https://github.com/cycjimmy/simulate-chatting/commit/2126177f1256e31eae511362dc20f6027e312c0c))
+
 # [2.0.0](https://github.com/cycjimmy/simulate-chatting/compare/v1.0.3...v2.0.0) (2022-03-26)
 
 
