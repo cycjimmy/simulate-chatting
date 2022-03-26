@@ -3,7 +3,6 @@
 ![][workflows-badge-image]
 [![libraries dependency status][libraries-status-image]][libraries-status-url]
 [![libraries sourcerank][libraries-sourcerank-image]][libraries-sourcerank-url]
-[![Coverage Status][coverage-image]][coverage-url]
 [![Release date][release-date-image]][release-url]
 [![rollup][rollup-image]][rollup-url]
 [![semantic-release][semantic-image]][semantic-url]
@@ -114,9 +113,6 @@ To use via a CDN include this in your HTML:
 [libraries-sourcerank-image]: https://img.shields.io/librariesio/sourcerank/npm/@cycjimmy/simulate-chatting
 [libraries-status-url]: https://libraries.io/github/cycjimmy/simulate-chatting
 [libraries-sourcerank-url]: https://libraries.io/npm/@cycjimmy%2Fsimulate-chatting
-
-[coverage-image]: https://img.shields.io/coveralls/github/cycjimmy/simulate-chatting
-[coverage-url]: https://coveralls.io/github/cycjimmy/simulate-chatting
 
 [release-date-image]: https://img.shields.io/github/release-date/cycjimmy/simulate-chatting
 [release-url]: https://github.com/cycjimmy/simulate-chatting/releases
