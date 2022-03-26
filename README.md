@@ -1,28 +1,22 @@
 # Simulate Chatting
 
-[![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
-[![David deps][david-image]][david-url]
-[![devDependencies Status][david-dev-image]][david-dev-url]
-[![npm download][download-image]][download-url]
+![][workflows-badge-image]
+[![libraries dependency status][libraries-status-image]][libraries-status-url]
+[![libraries sourcerank][libraries-sourcerank-image]][libraries-sourcerank-url]
+[![Coverage Status][coverage-image]][coverage-url]
+[![Release date][release-date-image]][release-url]
+[![rollup][rollup-image]][rollup-url]
+[![semantic-release][semantic-image]][semantic-url]
+[![jest][jest-image]][jest-url]
 [![npm license][license-image]][download-url]
 
-[npm-image]: https://img.shields.io/npm/v/@cycjimmy/simulate-chatting.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/@cycjimmy/simulate-chatting
-[travis-image]: https://img.shields.io/travis/cycjimmy/simulate-chatting.svg?style=flat-square
-[travis-url]: https://travis-ci.org/cycjimmy/simulate-chatting
-[david-image]: https://img.shields.io/david/cycjimmy/simulate-chatting.svg?style=flat-square
-[david-url]: https://david-dm.org/cycjimmy/simulate-chatting
-[david-dev-image]: https://david-dm.org/cycjimmy/simulate-chatting/dev-status.svg?style=flat-square
-[david-dev-url]: https://david-dm.org/cycjimmy/simulate-chatting?type=dev
-[download-image]: https://img.shields.io/npm/dm/@cycjimmy/simulate-chatting.svg?style=flat-square
-[download-url]: https://npmjs.org/package/@cycjimmy/simulate-chatting
-[license-image]: https://img.shields.io/npm/l/@cycjimmy/simulate-chatting.svg?style=flat-square
-
-([Releases](https://github.com/cycjimmy/simulate-chatting/releases) | [Demo](https://cycjimmy.github.io/simulate-chatting/))
-
+* Simulate Chatting based on swiper4+. ([Demo][github-pages-url])
 
 ## Install
+[![NPM version][npm-image]][npm-url]
+[![NPM bundle size][npm-bundle-size-image]][npm-url]
+[![npm download][download-image]][download-url]
+
 ```shell
 # via npm
 $ npm install @cycjimmy/simulate-chatting --save
@@ -42,7 +36,7 @@ const SimulateChat = require('@cycjimmy/simulate-chatting');
 ```
 
 ```javascript
-let simulateChat = new SimulateChat(wrapper, options);
+const simulateChat = new SimulateChat(wrapper, options);
 ```
 
 * `wrapper`: [Element|String] Context Wrapper Element. [Required]
@@ -80,9 +74,9 @@ let simulateChat = new SimulateChat(wrapper, options);
 <div id="wrapper"></div>
 
 <script src="swiper.min.js"></script>
-<script src="simulate-chatting.min.js"></script>
+<script src="simulate-chatting.umd.min.js"></script>
 <script>
-  var simulateChat = new SimulateChat('#wrapper', {
+  const simulateChat = new SimulateChat('#wrapper', {
     sound: 'msg.mp3',
     footer: {
       height: 40,
@@ -96,9 +90,46 @@ let simulateChat = new SimulateChat(wrapper, options);
 ```
 
 ## CDN
-To use via a CDN include this in your html:
+[![jsdelivr][jsdelivr-image]][jsdelivr-url]
+
+To use via a CDN include this in your HTML:
 ```text
-<script src="https://cdn.jsdelivr.net/npm/@cycjimmy/simulate-chatting@1/build/simulate-chatting.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@cycjimmy/simulate-chatting@2/dist/simulate-chatting.umd.min.js"></script>
 ```
 
+<!-- Links: -->
+[npm-image]: https://img.shields.io/npm/v/@cycjimmy/simulate-chatting
+[npm-url]: https://npmjs.org/package/@cycjimmy/simulate-chatting
+[npm-bundle-size-image]: https://img.shields.io/bundlephobia/min/@cycjimmy/simulate-chatting
 
+[download-image]: https://img.shields.io/npm/dt/@cycjimmy/simulate-chatting
+[download-url]: https://npmjs.org/package/@cycjimmy/simulate-chatting
+
+[jsdelivr-image]: https://img.shields.io/jsdelivr/npm/hy/@cycjimmy/simulate-chatting
+[jsdelivr-url]: https://www.jsdelivr.com/package/npm/@cycjimmy/simulate-chatting
+
+[workflows-badge-image]: https://github.com/cycjimmy/simulate-chatting/workflows/Test%20CI/badge.svg
+
+[libraries-status-image]: https://img.shields.io/librariesio/release/npm/@cycjimmy/simulate-chatting
+[libraries-sourcerank-image]: https://img.shields.io/librariesio/sourcerank/npm/@cycjimmy/simulate-chatting
+[libraries-status-url]: https://libraries.io/github/cycjimmy/simulate-chatting
+[libraries-sourcerank-url]: https://libraries.io/npm/@cycjimmy%2Fsimulate-chatting
+
+[coverage-image]: https://img.shields.io/coveralls/github/cycjimmy/simulate-chatting
+[coverage-url]: https://coveralls.io/github/cycjimmy/simulate-chatting
+
+[release-date-image]: https://img.shields.io/github/release-date/cycjimmy/simulate-chatting
+[release-url]: https://github.com/cycjimmy/simulate-chatting/releases
+
+[rollup-image]: https://img.shields.io/github/package-json/dependency-version/cycjimmy/simulate-chatting/dev/rollup
+[rollup-url]: https://github.com/rollup/rollup
+
+[semantic-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[semantic-url]: https://github.com/semantic-release/semantic-release
+
+[jest-image]: https://img.shields.io/badge/tested_with-jest-99424f.svg
+[jest-url]: https://github.com/facebook/jest
+
+[license-image]: https://img.shields.io/npm/l/@cycjimmy/simulate-chatting
+
+[github-pages-url]: https://cycjimmy.github.io/simulate-chatting/

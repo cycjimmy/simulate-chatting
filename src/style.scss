@@ -38,11 +38,6 @@ $bgc: #ebebeb;
   @extend %fullContainer;
 }
 
-.swiperSlideActive {
-  visibility: visible;
-  pointer-events: auto;
-}
-
 .chartList {
   @extend %abs;
   left: 0;
@@ -51,6 +46,10 @@ $bgc: #ebebeb;
   display: flex;
   flex-direction: column;
   list-style: none;
+
+  &:global(.swiper-slide) {
+    height: auto;
+  }
 
   > li {
     display: none;

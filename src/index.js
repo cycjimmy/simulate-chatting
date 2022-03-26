@@ -1,11 +1,35 @@
-// template
-import containerTemplate from './template/container.pug'
-
 // style
-import _style from './style.scss';
+import isString from '@cycjimmy/awesome-js-funcs/esm/judgeBasic/isString';
+import isAudioPlaying from '@cycjimmy/awesome-js-funcs/esm/media/isAudioPlaying';
+import style from './style.scss';
+import containerTemplate from './containerTemplate';
 
-import isString from '@cycjimmy/awesome-js-funcs/judgeBasic/isString';
-import isAudioPlaying from '@cycjimmy/awesome-js-funcs/media/isAudioPlaying';
+// private
+const _formattingCustomValue = (inputValue) => {
+  if (isString(inputValue)) {
+    return inputValue;
+  }
+  return `${inputValue}px`;
+};
+
+const _chartListHandle = (chartList) => chartList.map((config, index) => {
+  const insideConfig = config;
+  insideConfig.index = index;
+
+  if (insideConfig.w) {
+    insideConfig.w = _formattingCustomValue(insideConfig.w);
+  }
+
+  if (insideConfig.h) {
+    insideConfig.h = _formattingCustomValue(insideConfig.h);
+  }
+
+  if (insideConfig.top) {
+    insideConfig.top = _formattingCustomValue(insideConfig.top);
+  }
+
+  return insideConfig;
+});
 
 export default class SimulateChat {
   /**
@@ -34,7 +58,7 @@ export default class SimulateChat {
 
     this.config = {
       width: this.el.context.getBoundingClientRect().width,
-      chartList: chartList,
+      chartList,
       footer: null,
       sound: null,
       SwiperModule: SwiperModule || window.Swiper,
@@ -64,12 +88,11 @@ export default class SimulateChat {
 
     this.swiper = null;
     this._initUI();
-    console.log(this);
-  };
+  }
 
   /**
    * Start to display patterns.
-   * @return {SimulateChat}
+   * @returns {Promise<unknown>|SimulateChat}
    */
   start() {
     if (this.state.busy) {
@@ -84,9 +107,8 @@ export default class SimulateChat {
 
     this.state.isPausing = false;
 
-    this._showOne();
-    return this;
-  };
+    return this._showOne();
+  }
 
   /**
    * Pause the running of patterns.
@@ -95,7 +117,7 @@ export default class SimulateChat {
   pause() {
     this.state.isPausing = true;
     return this;
-  };
+  }
 
   /**
    * Reset patterns.
@@ -105,18 +127,19 @@ export default class SimulateChat {
     // set state
     this.state.isPausing = true;
     this.state.done = false;
+    this.state.busy = false;
     this.state.next = null;
 
     // reset ui
-    this.el.chartListChds.forEach(el => {
-      el.classList.remove(_style.show);
+    this.el.chartListChds.forEach((el) => {
+      el.classList.remove(style.show);
     });
 
     this.swiper.updateSlides();
     this._scrollToTop(0);
 
     return this;
-  };
+  }
 
   /**
    * Show a pattern
@@ -125,12 +148,12 @@ export default class SimulateChat {
   _showOne() {
     // stage 1
     if (!this.state.next) {
-      this.state.next = this.el.chartList.firstChild;
+      this.state.next = this.el.chartList.firstElementChild;
     }
 
     return new Promise((resolve, reject) => {
       this.state.busy = true;
-      let delay = this.state.next.dataset.delay || 1500;
+      const delay = this.state.next.dataset.delay || 1500;
 
       setTimeout(() => {
         if (this.state.isPausing) {
@@ -141,36 +164,31 @@ export default class SimulateChat {
         }
       }, delay);
     })
-      .then(() => {
-        return new Promise(resolve => {
-          // stage 2
-          let
-            needPause = Boolean(this.state.next.dataset.pause)
-            , needSound = !Boolean(this.state.next.dataset.muted)
-            , hasCallback = Boolean(this.state.next.dataset.callback)
-          ;
+      .then(() => new Promise((resolve) => {
+        // stage 2
+        const needPause = Boolean(this.state.next.dataset.pause);
+        const needSound = !this.state.next.dataset.muted;
+        const hasCallback = Boolean(this.state.next.dataset.callback);
+        if (needSound) {
+          this._soundPlay();
+        }
+        this.state.next.classList.add(style.show);
+        this.swiper.updateSlides();
+        this._scrollToBottom();
 
-          if (needSound) {
-            this._soundPlay();
-          }
-          this.state.next.classList.add(_style.show);
-          this.swiper.updateSlides();
-          this._scrollToBottom();
+        // run callback
+        if (hasCallback) {
+          this.config.chartList[this.state.next.dataset.index].callback();
+        }
 
-          // run callback
-          if (hasCallback) {
-            this.config.chartList[this.state.next.dataset.index].callback();
-          }
+        // set next
+        this.state.next = this.state.next.nextElementSibling;
 
-          // set next
-          this.state.next = this.state.next.nextElementSibling;
-
-          setTimeout(() => resolve(needPause), 0);
-        });
-      })
+        setTimeout(() => resolve(needPause), 0);
+      }))
       .then((needPause) => {
         if (!this.state.next) {
-          console.log('done!');
+          // done
           this.state.done = true;
           this.state.isPausing = true;
           this.state.busy = false;
@@ -183,11 +201,10 @@ export default class SimulateChat {
         this.state.busy = false;
         return Promise.resolve();
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         this.state.busy = false;
       });
-  };
+  }
 
   /**
    * Initialization UI
@@ -195,22 +212,22 @@ export default class SimulateChat {
    */
   _initUI() {
     this.el.container = document.createElement('div');
-    this.el.container.classList.add(_style.container);
+    this.el.container.classList.add(style.container);
 
     this.el.container.innerHTML = containerTemplate({
-      _style,
+      style,
       config: this.config,
     });
 
     this.el.context.appendChild(this.el.container);
 
-    this.el.swiperContainer = this.el.container.querySelector('.' + _style.main);
-    this.el.swiperWrapper = this.el.container.querySelector('.' + _style.swiperWrapper);
-    this.el.chartList = this.el.swiperWrapper.querySelector('.' + _style.chartList);
+    this.el.swiperContainer = this.el.container.querySelector(`.${style.main}`);
+    this.el.swiperWrapper = this.el.container.querySelector(`.${style.swiperWrapper}`);
+    this.el.chartList = this.el.swiperWrapper.querySelector(`.${style.chartList}`);
     this.el.chartListChds = Array.prototype.slice.call(this.el.chartList.children);
 
     this.config.swiperContainer = {
-      height: this.el.swiperContainer.getBoundingClientRect().height
+      height: this.el.swiperContainer.getBoundingClientRect().height,
     };
 
     this.swiper = new this.config.SwiperModule(this.el.swiperContainer, {
@@ -219,32 +236,25 @@ export default class SimulateChat {
       slidesPerView: 'auto',
       freeMode: true,
       mousewheel: true,
-
-      // namespace
-      wrapperClass: _style.swiperWrapper,
-      slideClass: _style.chartList,
-      slideActiveClass: _style.swiperSlideActive,
     });
-  };
+  }
 
   /**
    * Initialization sound
    * @private
    */
   _soundInit() {
-    let
-      _soundLoad = () => {
-        if (!this.config.sound.load) {
-          this.config.sound.load();
-        }
+    const _soundLoad = () => {
+      if (!this.config.sound.load) {
+        this.config.sound.load();
+      }
 
-        this._soundUnlock();
-        console.log('sound load');
-        document.body.removeEventListener('touchstart', _soundLoad);
-      };
+      this._soundUnlock();
+      document.body.removeEventListener('touchstart', _soundLoad);
+    };
 
     document.body.addEventListener('touchstart', _soundLoad, false);
-  };
+  }
 
   /**
    * Scroll To Bottom
@@ -252,21 +262,18 @@ export default class SimulateChat {
    * @private
    */
   _scrollToBottom(speed = 200) {
-    let
-      chartListHeight = this.el.chartList.getBoundingClientRect().height
-      , distance = this.config.swiperContainer.height - chartListHeight
-    ;
-
+    const chartListHeight = this.el.chartList.getBoundingClientRect().height;
+    const distance = this.config.swiperContainer.height - chartListHeight;
     if (distance > 0) {
       return;
     }
 
-    this.el.swiperWrapper.style.cssText = 'transition-duration: '
-      + speed
-      + 'ms; transform: translate3d(0px, '
-      + distance
-      + 'px, 0px);';
-  };
+    this.el.swiperWrapper.style.cssText = `transition-duration: ${
+      speed
+    }ms; transform: translate3d(0px, ${
+      distance
+    }px, 0px);`;
+  }
 
   /**
    * Scroll To Top
@@ -274,10 +281,10 @@ export default class SimulateChat {
    * @private
    */
   _scrollToTop(speed = 200) {
-    this.el.swiperWrapper.style.cssText = 'transition-duration: '
-      + speed
-      + 'ms; transform: translate3d(0px, 0px, 0px);';
-  };
+    this.el.swiperWrapper.style.cssText = `transition-duration: ${
+      speed
+    }ms; transform: translate3d(0px, 0px, 0px);`;
+  }
 
   /**
    * play sound
@@ -292,7 +299,7 @@ export default class SimulateChat {
       this.config.sound.muted = false;
     }
     this.config.sound.play();
-  };
+  }
 
   /**
    * sound unlock
@@ -311,39 +318,7 @@ export default class SimulateChat {
         if (!this.state.soundMuted) {
           this.config.sound.muted = false;
         }
-        console.log('sound unlocked');
       }
     }, 0);
-  };
-};
-
-// private
-const
-  _formattingCustomValue = (inputValue) => {
-    if (isString(inputValue)) {
-      return inputValue;
-    } else {
-      return inputValue + 'px';
-    }
   }
-
-  , _chartListHandle = (chartList) => {
-    return chartList.map((obj, index) => {
-      obj.index = index;
-
-      if (obj.w) {
-        obj.w = _formattingCustomValue(obj.w);
-      }
-
-      if (obj.h) {
-        obj.h = _formattingCustomValue(obj.h);
-      }
-
-      if (obj.top) {
-        obj.top = _formattingCustomValue(obj.top);
-      }
-
-      return obj;
-    });
-  }
-;
+}
