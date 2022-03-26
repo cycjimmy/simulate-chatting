@@ -1,28 +1,24 @@
+/* eslint no-undef: off */
 import path from 'path';
 
 import Swiper from 'swiper';
-import SimulateChat from '../build/simulate-chatting.min';
+import SimulateChat from '../src/index';
 
 describe('ui spec', () => {
-  const
-    wrapper = document.createElement('div')
-  ;
+  const wrapper = document.createElement('div');
 
   wrapper.style.width = '320px';
   wrapper.style.height = '520px';
 
-  let
-    simulateChat = new SimulateChat(wrapper, {
-      sound: path.resolve('static', 'demoFiles', 'msg.mp3'),
-      footer: {
-        img: path.resolve('static', 'demoFiles', 'footerInput.jpg'),
-        height: 40
-      },
-      chartList: [],
-      SwiperModule: Swiper
-    })
-  ;
-
+  const simulateChat = new SimulateChat(wrapper, {
+    sound: path.resolve('static', 'msg.mp3'),
+    footer: {
+      img: path.resolve('static', 'footerInput.jpg'),
+      height: 40,
+    },
+    chartList: [],
+    SwiperModule: Swiper,
+  });
   test('default exist test', () => {
     expect(simulateChat.el.context).toBeTruthy();
     expect(simulateChat.el.container).toBeTruthy();
