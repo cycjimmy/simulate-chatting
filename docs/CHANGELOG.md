@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/cycjimmy/simulate-chatting/compare/v1.0.3...v2.0.0) (2022-03-26)
+
+
+### Features
+
+* change to module mode ([2100adb](https://github.com/cycjimmy/simulate-chatting/commit/2100adb6837c628f78d3d756e86d74ccbece24c2))
+
+
+### BREAKING CHANGES
+
+* change to module mode
+
 ## [1.0.3](https://github.com/cycjimmy/simulate-chatting/compare/v1.0.2...v1.0.3) (2019-10-25)
 
 
