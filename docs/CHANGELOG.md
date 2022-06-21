@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/cycjimmy/simulate-chatting/compare/v2.0.1...v2.0.2) (2022-06-21)
+
+
+### Bug Fixes
+
+* remove @rollup/plugin-commonjs and fix jest ([75cc9ff](https://github.com/cycjimmy/simulate-chatting/commit/75cc9ffd0b0f53cc9585c278746eb9ecf54f3145))
+
 ## [2.0.1](https://github.com/cycjimmy/simulate-chatting/compare/v2.0.0...v2.0.1) (2022-03-26)
 
 
