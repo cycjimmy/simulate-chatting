@@ -192,7 +192,7 @@
      * Start to display patterns.
      * @returns {Promise<unknown>|SimulateChat}
      */
-    _createClass(SimulateChat, [{
+    return _createClass(SimulateChat, [{
       key: "start",
       value: function start() {
         if (this.state.busy) {
@@ -421,7 +421,6 @@
         }, 0);
       }
     }]);
-    return SimulateChat;
   }();
 
   return SimulateChat;
