@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/cycjimmy/simulate-chatting/compare/v2.0.2...v2.0.3) (2024-07-17)
+
+
+### Bug Fixes
+
+* upgrade rollup to v4 ([c8c6d7d](https://github.com/cycjimmy/simulate-chatting/commit/c8c6d7d2f92b6add6d0c453bf43e881f222e3914))
+
 ## [2.0.2](https://github.com/cycjimmy/simulate-chatting/compare/v2.0.1...v2.0.2) (2022-06-21)
 
 
