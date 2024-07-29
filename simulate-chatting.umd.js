@@ -334,14 +334,14 @@
       key: "_soundInit",
       value: function _soundInit() {
         var _this2 = this;
-        var _soundLoad = function _soundLoad() {
+        var _soundLoad2 = function _soundLoad() {
           if (!_this2.config.sound.load) {
             _this2.config.sound.load();
           }
           _this2._soundUnlock();
-          document.body.removeEventListener('touchstart', _soundLoad);
+          document.body.removeEventListener('touchstart', _soundLoad2);
         };
-        document.body.addEventListener('touchstart', _soundLoad, false);
+        document.body.addEventListener('touchstart', _soundLoad2, false);
       }
 
       /**
