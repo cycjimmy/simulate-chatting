@@ -38,13 +38,13 @@
    * @param str
    * @returns {boolean}
    */
-  var isString = (str => typeof str === 'string' && str.constructor === String);
+  var isString = str => typeof str === 'string' && str.constructor === String;
 
   /**
    * isAudioPlaying
    * @param audio
    */
-  var isAudioPlaying = (audio => !audio.paused);
+  var isAudioPlaying = audio => !audio.paused;
 
   function styleInject(css, ref) {
     if (ref === void 0) ref = {};
