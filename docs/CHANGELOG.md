@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/cycjimmy/simulate-chatting/compare/v2.0.3...v2.0.4) (2024-10-25)
+
+
+### Bug Fixes
+
+* use @cycjimmy/sass-lib@3 ([26fa77a](https://github.com/cycjimmy/simulate-chatting/commit/26fa77a571afe23893553e159edd78fc09fef065))
+
 ## [2.0.3](https://github.com/cycjimmy/simulate-chatting/compare/v2.0.2...v2.0.3) (2024-07-17)
 
 

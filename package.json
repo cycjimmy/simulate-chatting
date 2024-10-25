@@ -1,6 +1,6 @@
 {
   "name": "@cycjimmy/simulate-chatting",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "simulate chatting ui",
   "type": "module",
   "main": "dist/simulate-chatting.cjs",
