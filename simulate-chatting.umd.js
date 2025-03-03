@@ -14,14 +14,14 @@
     }
   }
   function _createClass(e, r, t) {
-    return _defineProperties(e.prototype, r), Object.defineProperty(e, "prototype", {
+    return r && _defineProperties(e.prototype, r), Object.defineProperty(e, "prototype", {
       writable: false
     }), e;
   }
   function _toPrimitive(t, r) {
     if ("object" != typeof t || !t) return t;
     var e = t[Symbol.toPrimitive];
-    if (undefined !== e) {
+    if (void 0 !== e) {
       var i = e.call(t, r);
       if ("object" != typeof i) return i;
       throw new TypeError("@@toPrimitive must return a primitive value.");
@@ -47,7 +47,7 @@
   var isAudioPlaying = audio => !audio.paused;
 
   function styleInject(css, ref) {
-    if (ref === undefined) ref = {};
+    if (ref === void 0) ref = {};
     var insertAt = ref.insertAt;
     if (typeof document === 'undefined') {
       return;
@@ -134,13 +134,13 @@
      */
     function SimulateChat(context, _ref) {
       var _ref$footer = _ref.footer,
-        footer = _ref$footer === undefined ? null : _ref$footer,
+        footer = _ref$footer === void 0 ? null : _ref$footer,
         _ref$chartList = _ref.chartList,
-        chartList = _ref$chartList === undefined ? [] : _ref$chartList,
+        chartList = _ref$chartList === void 0 ? [] : _ref$chartList,
         _ref$sound = _ref.sound,
-        sound = _ref$sound === undefined ? '' : _ref$sound,
+        sound = _ref$sound === void 0 ? '' : _ref$sound,
         _ref$SwiperModule = _ref.SwiperModule,
-        SwiperModule = _ref$SwiperModule === undefined ? null : _ref$SwiperModule;
+        SwiperModule = _ref$SwiperModule === void 0 ? null : _ref$SwiperModule;
       _classCallCheck(this, SimulateChat);
       this.el = {};
       this.el.context = isString(context) ? document.querySelector(context) : context;
