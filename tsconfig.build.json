@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    // `isolatedDeclarations` is deliberately off: it rejects the annotated
+    // shapes this single-entry library uses without buying anything here. The
+    // public surface is pinned by the exported interfaces instead.
+    "outDir": "dist"
+  },
+  "include": ["src"]
+}

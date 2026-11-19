@@ -1,4 +1,4 @@
-@use "~@cycjimmy/sass-lib" as *;
+@use "@cycjimmy/sass-lib" as *;
 
 /**
  * variables
@@ -15,35 +15,38 @@ $bgc: #ebebeb;
 }
 
 // common
-.fullImg {
+.full-img {
   @extend %full-container;
 }
 
 .container {
   @extend %full-container;
+
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   background-color: $bgc;
-  overflow: hidden;
 }
 
-// main chartList
+// main chart-list
 .main {
   @extend %full-width;
-  flex: 1;
+
   overflow: hidden;
+  flex: 1;
 }
 
-.swiperWrapper {
+.swiper-wrapper {
   @extend %full-container;
 }
 
-.chartList {
+.chart-list {
   @extend %abs;
-  left: 0;
+
   top: 0;
-  width: 100%;
+  left: 0;
   display: flex;
+  width: 100%;
   flex-direction: column;
   list-style: none;
 
@@ -65,8 +68,9 @@ $bgc: #ebebeb;
     }
   }
 
-  .listContent {
+  .list-content {
     @extend %rel;
+
     margin: 0 2.5%;
   }
 
@@ -87,5 +91,6 @@ $bgc: #ebebeb;
 .footer {
   @extend %rel;
   @extend %full-width;
+
   margin-top: 1.8%;
 }
