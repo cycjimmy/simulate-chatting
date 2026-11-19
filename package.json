@@ -1,7 +1,7 @@
 {
   "name": "@cycjimmy/simulate-chatting",
   "type": "module",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "description": "simulate chatting ui",
   "author": "cycjimmy <cycjimmy@gmail.com> (https://github.com/cycjimmy)",
   "license": "MIT",

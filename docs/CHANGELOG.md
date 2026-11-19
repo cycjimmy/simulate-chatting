@@ -1,3 +1,20 @@
+# [3.0.0](https://github.com/cycjimmy/simulate-chatting/compare/v2.0.4...v3.0.0) (2026-11-19)
+
+
+* feat!: rebuild the toolchain on Vite 8 and TypeScript ([eaeebe9](https://github.com/cycjimmy/simulate-chatting/commit/eaeebe9c13fa19ea0bbdbced0e7ea90f3719cf9b))
+
+
+### BREAKING CHANGES
+
+* the npm entry points are ESM only. `main`, `module` and
+`exports` resolve to dist/simulate-chatting.esm.js and the CommonJS bundle is
+gone, so `require()` only works where Node can load ESM (>= 20.19 / >= 22.12)
+and then returns the module namespace; the standalone UMD bundle is still
+published for script tags. TypeScript declarations are now published. The
+output targets ES2015 instead of IE10, the `chartList` passed in is no longer
+mutated, an omitted `delay` waits the documented 1500 ms, and `start()` no
+longer throws when no `sound` is configured.
+
 ## [2.0.4](https://github.com/cycjimmy/simulate-chatting/compare/v2.0.3...v2.0.4) (2024-10-25)
 
 
